@@ -11,7 +11,7 @@ export class AppConfig {
     public locale:string  = "en-US";
 
     // API Related configs
-    public apiPort:string = "8080";
+    public apiPort:string; // change port if backend works on a different port than frontend
     public apiProtocol:string;
     public apiHostName:string;
     public baseApiPath:string;
@@ -26,7 +26,14 @@ export class AppConfig {
         if (this.apiPort===undefined){
             this.apiPort = window.location.port;
         }
-        this.baseApiPath = this.apiProtocol + "//" + this.apiHostName + ":" + this.apiPort +"/";
+
+        this.baseApiPath = this.apiProtocol + "//" + this.apiHostName;
+
+        if(this.apiPort!==undefined && this.apiPort!==null && this.apiPort!=="") {
+            this.baseApiPath = this.baseApiPath + ":" + this.apiPort;
+        }
+        this.baseApiPath = this.baseApiPath +"/";
+
         if (this.locale===undefined){
             this.locale = navigator.language;
         }
