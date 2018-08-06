@@ -11,6 +11,8 @@
     <artifactId>webui</artifactId>
     <version>1.0.0</version>
 	
+<!-- remove comment out if you want npm builds be a part of your package phase -->
+<!-- 
 	<build>
 		<plugins>
 			<plugin>
@@ -50,5 +52,5 @@
             </plugin>
 		</plugins>
 	</build>
-
+-->
 </project>
